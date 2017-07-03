@@ -11,12 +11,12 @@ class Expense(models.Model):
     dong = models.CharField(max_length = 255, default='')
     amount = models.BigIntegerField(default = '')
     user = models.ForeignKey(User, default = '')
-    
-
+    date = models.DateField(default = '1396-01-01')
 
 class Income(models.Model):
 
-    text = models.CharField(max_length = 255, default='')
-    dong = models.CharField(max_length = 255, default='')
+    text = models.CharField(max_length = 255, default ='')
+    dong = models.CharField(max_length = 255, default ='')
     amount = models.BigIntegerField(default = '')
-    user = models.ForeignKey(User, default = '')
+    user = models.ForeignKey(User, default ='')
+    date = models.DateField(default = '')
