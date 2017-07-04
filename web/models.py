@@ -26,3 +26,7 @@ class Income(models.Model):
 
     def __unicode__(self):
         return '{}{}'.format(self.text, self.date)
+
+class Token(models.Model):
+    user = models.OneToOneField(User, on_delete =models.CASCADE)
+    token = models.CharField(max_length = 200)
