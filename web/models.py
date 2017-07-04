@@ -13,6 +13,9 @@ class Expense(models.Model):
     user = models.ForeignKey(User, default = '')
     date = models.DateField(default = '1396-01-01')
 
+    def __unicode__(self):
+        return text
+
 class Income(models.Model):
 
     text = models.CharField(max_length = 255, default ='')
@@ -20,3 +23,6 @@ class Income(models.Model):
     amount = models.BigIntegerField(default = '')
     user = models.ForeignKey(User, default ='')
     date = models.DateField(default = '')
+
+    def __unicode__(self):
+        return '{}{}'.format(self.text, self.date)
