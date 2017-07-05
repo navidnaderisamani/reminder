@@ -5,28 +5,34 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
+
 class Expense(models.Model):
 
     text = models.CharField(max_length = 255, default='')
-    dong = models.CharField(max_length = 255, default='')
+    dong = models.CharField(max_length = 255, default='',null=True, blank=True)
     amount = models.BigIntegerField(default = '')
     user = models.ForeignKey(User, default = '')
-    date = models.DateField(default = '1396-01-01')
+    date = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return text
+        return (self.text)
 
 class Income(models.Model):
 
-    text = models.CharField(max_length = 255, default ='')
-    dong = models.CharField(max_length = 255, default ='')
+    text = models.CharField(max_length = 255, default='')
+    dong = models.CharField(max_length = 255, default='',null=True, blank=True)
     amount = models.BigIntegerField(default = '')
-    user = models.ForeignKey(User, default ='')
-    date = models.DateField(default = '')
+    user = models.ForeignKey(User, default = '')
+    date = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
         return '{}{}'.format(self.text, self.date)
 
+
 class Token(models.Model):
     user = models.OneToOneField(User, on_delete =models.CASCADE)
     token = models.CharField(max_length = 200)
+
+    def __unicode__(self):
+        return "{}_token".format(self.user )
