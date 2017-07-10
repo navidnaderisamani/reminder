@@ -1,0 +1,105 @@
+{% extends "base.html"%}
+{% load staticfiles %}
+
+{% block content %}
+
+
+
+
+  {% if message %}
+  <div class="bs-callout bs-callout-info">
+    <h5>{{ message }}</h5>
+  </div>
+  {% endif %}
+
+
+
+<div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"پریماتک</h3>
+        </div>
+        <div class="panel-body">
+
+
+<p>
+برای باز کردن اکانت
+<a href="{% url 'register' %}">به صفحه رجیستر شدن برین</a>
+و برای اطلاعات بیشتر مراجعه بکنین به
+<a href="http://github.com/">
+  گیت هاب پروژه.
+</a>
+</p>
+        </div>
+        <p>
+
+        </p>
+      </div>
+
+
+<br /><br />
+
+
+
+</div>
+
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+              ما به دنبال چی هستیم ؟؟؟
+      </h3>
+    </div>
+    <div class="panel-body">
+       این یک پروژه شخصی برای افزایش مهارت های برنامه نویسی است.
+       هنوز کامل نشده و تا کامل شدن زمان زیادی باقی مانده است.
+       در آخر به دنبال اضافه کردن موارد زیر در پروژه هستیم:
+       <ul><li>جمع آوری اخبار پربازدید (ورزشی، اقتصادی و ...)</li></ul>
+       <ul><li>صفحه برنامه ریزی شخصی</li></ul>
+       <ul><li>و هر چی به ذهنمون رسید !!!</li></ul>
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+<script >
+$(document).ready(function () {
+        $(".subtaskinput").fadeOut(0);
+        $('.fa-square-o').hover(function () {
+            $(this).addClass('fa-check-square-o');
+            $(this).removeClass('fa-square-o');
+        }, function () {
+            $(this).addClass('fa-square-o');
+            $(this).removeClass('fa-check-square-o');
+        });
+});
+function showsubtaskinput(elementid){
+  if ($('.btn-'+elementid).text() == '+') {
+    $('.subtask-'+elementid).fadeIn(250);
+    $('.subtask-'+elementid).focus();
+    $('.btn-'+elementid).text ('-');
+  }
+  else {
+    $('.subtask-'+elementid).fadeOut(250);
+    $('.btn-'+elementid).text ('+');
+  }
+
+  return 0;
+}
+</script>
+
+<script type="text/javascript">
+$(".alert").fadeTo(10000, 500).slideUp(500, function(){
+    $(".alert").slideUp(10000);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+  <ul class="breadcrumb">
+      <li><a href="{% url 'index' %}">خانه</a></li>
+      <li class="active">برنامه ریزی</li>
+  </ul>
+  <div class="well well-sm">
+    <div class="row">
+      <div class="col-md-3 text-danger h4 ">
+        شامگاه
+
+      </div>
+      <div class="col-md-3 text-warning h4">
+        نیمروز
+      </div>
+      <div class="col-md-3 text-success h4">
+        بامداد
+      </div>
+
+        <div class="col-md-3 text-primary h4">
+        روزهای هفته
+        </div>
+    </div>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td class="text-right h4 warning text-warning"> شنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> یکشنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> دوشنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> سه شنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> چهارشنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> پنجشنبه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+        <tr>
+          <td class="text-right h4 warning text-warning"> آدینه </td>
+          <td>برنامه نویسی </td>
+          <td>ویدیو های جادی</td>
+          <td>پایان نامه</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
