@@ -158,6 +158,7 @@ def report(request):
     context['Expense'] = expense
     context['income_count'] = income_count
     context['expense_count'] = expense_count
+    #TODO: return username
 
     return JsonResponse(context, encoder = JSONEncoder)
 
