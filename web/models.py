@@ -42,3 +42,13 @@ class Passwordresetcodes(models.Model):
     time = models.DateTimeField()
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=255)  # TODO: do not save password
+
+class Plan(models.Model):
+    time = models.DateTimeField()
+    saturday = models.CharField(max_length = 255)
+    sunday = models.CharField(max_length = 255)
+    monday = models.CharField(max_length = 255)
+    tuesday = models.CharField(max_length = 255)
+    wednesday = models.CharField(max_length = 255)
+    thursday = models.CharField(max_length = 255)
+    friday = models.CharField(max_length = 255)
