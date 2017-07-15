@@ -21,7 +21,6 @@ class Expense(models.Model):
 class Income(models.Model):
 
     text = models.CharField(max_length = 255, default='')
-    dong = models.CharField(max_length = 255, default='',null=True, blank=True)
     amount = models.BigIntegerField(default = '')
     user = models.ForeignKey(User, default = '')
     date = models.DateTimeField(null=True, blank=True)

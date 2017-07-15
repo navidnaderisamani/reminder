@@ -129,14 +129,17 @@ def login(request):
             context = {}
             context['result'] = 'ok'
             context['token'] = token
+            #context = {'message':'شما با موفقیت وارد شدید'}
             # return {'status':'ok','token':'TOKEN'}
-            #return JsonResponse(context, encoder=JSONEncoder)
-            return render(request, 'index.html', context)
+            return JsonResponse(context, encoder=JSONEncoder)
+            #return render(request, 'index.html', context)
         else:
             context = {}
             context['result'] = 'error'
-            # return {'status':'error'}
+
+            #context = {'message' : 'نام کاربری یا رمز عبور شما اشتباه است لطفا مجددا تلاش کنید'}
             return JsonResponse(context, encoder=JSONEncoder)
+            #return render(request, 'login.html', context)
 
 
     return render(request, 'login.html')
@@ -176,7 +179,10 @@ def expense(request):
     this_amount = request.POST['amount']
     this_text = request.POST['text']
     now = datetime.now()
-    this_dong = request.POST['dong']
+    try:
+        this_dong = request.POST['dong']
+    except:
+        this_dong = ''
 
     Expense.objects.create(text = this_text, dong = this_dong, date = now,
      amount = this_amount, user_id = this_user_id)
@@ -198,9 +204,9 @@ def income(request):
     this_amount = request.POST['amount']
     this_text = request.POST['text']
     now = datetime.now()
-    this_dong = request.POST['dong']
 
-    Income.objects.create(text = this_text, dong=this_dong,
+
+    Income.objects.create(text = this_text,
     user_id = this_user_id, amount = this_amount, date = now
     )
 
