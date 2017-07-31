@@ -8,7 +8,9 @@
   <ul class="breadcrumb">
       <li><a href="{% url 'index' %}">خانه</a></li>
       <li class="active">برنامه ریزی</li>
+      <li>این جهان کوه است و فعل ما ندا سوی ما آید نداها را صدا</li>
   </ul>
+
   <div class="well well-sm">
     <div class="row">
       <div class="col-md-3 text-danger h4 ">
@@ -16,7 +18,7 @@
 
       </div>
       <div class="col-md-3 text-warning h4">
-        نیمروز
+        {{plan.time.date}}
       </div>
       <div class="col-md-3 text-success h4">
         بامداد
@@ -33,46 +35,32 @@
     <table class="table table-hover">
       <tbody>
         <tr>
-          <td class="text-right h4 warning text-warning"> شنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+          <td class="text-right h4 warning text-warning col-md-2"> شنبه </td>
+        <td class="col-md-10" style="text-align:center"> {{plan.saturday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> یکشنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+            <td class="col-md-12" style="text-align:center"> {{plan.sunday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> دوشنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+            <td class="col-md-12" style="text-align:center"> {{plan.monday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> سه شنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+          <td class="col-md-12" style="text-align:center"> {{plan.tuesday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> چهارشنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+        <td class="col-md-12" style="text-align:center"> {{plan.wednesday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> پنجشنبه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+            <td class="col-md-12" style="text-align:center"> {{plan.thursday}} </td>
         </tr>
         <tr>
           <td class="text-right h4 warning text-warning"> آدینه </td>
-          <td>برنامه نویسی </td>
-          <td>ویدیو های جادی</td>
-          <td>پایان نامه</td>
+          <td class="col-md-12" style="text-align:center"> {{plan.friday}} </td>
         </tr>
 
       </tbody>

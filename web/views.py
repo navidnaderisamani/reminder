@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
 from json import JSONEncoder
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-from web.models import  Expense, User, Token, Income, Passwordresetcodes
+from web.models import  Expense, User, Token, Income, Passwordresetcodes, Plan
 import requests, random, json, string
 from django.conf import settings
 from django.contrib.auth.hashers import make_password, check_password
@@ -12,6 +12,9 @@ from django.template import RequestContext
 from postmark import PMMail
 from django.utils.crypto import get_random_string
 from django.db.models import Sum, Count
+from django.core import serializers
+
+
 # Create your views here.
 
 
@@ -215,8 +218,30 @@ def income(request):
     'status':'OK',
     },encoder = JSONEncoder)
 
+@csrf_exempt
+def expense_report(request):
+
+    if 'token' in request.POST:
+        this_token = request.POST['token']
+        this_user = User.objects.filter(token__token = this_token).get()
+        user_expense = Expense.objects.filter(user=this_user).all()
+        expenses_serialized = serializers.serialize("json", user_expense)
+
+        return JsonResponse(expenses_serialized, encoder=JSONEncoder, safe=False)
+
+
 
 def index(request):
 
     context = {'status':'OK'}
     return render(request, 'index.html', context)
+
+def plan(request):
+
+    plan = Plan.objects.latest('id')
+
+    if request.user.is_authenticated():
+        return render_to_response('plan.html', {'plan':plan})
+    else:
+        context = {'message':'شما اجازه دسترسی به این قسمت را ندارید'}
+        return render(request,'login.html', context)
